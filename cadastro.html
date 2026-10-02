@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CADASTRO | ONG Educação para Todos</title>
+
+    <meta
+        name="description"
+        content="Cadastre-se para fazer parte da Educação para Todos como voluntário ou cadastre uma criança ou jovem para receber apoio."
+    >
+
+    <link rel="stylesheet" href="../css/styles.css">
+
+</head>
+
+<body>
+
+    <header class="cabecalho">
+
+        <div class="container cabecalho-conteudo">
+
+            <div class="marca">
+
+                <h1>Educação para Todos</h1>
+
+                <p>Compartilhando conhecimento, construindo futuros.</p>
+
+            </div>
+
+            <button
+                type="button"
+                class="menu-toggle"
+                id="menu-toggle"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+            >
+                ☰
+            </button>
+
+            <nav class="navegacao" id="navegacao">
+
+                <a href="index.html">Início</a>
+
+                <a href="projetos.html">Projetos</a>
+
+                <a href="cadastro.html" class="link-ativo">
+                    Seja Voluntário
+                </a>
+
+                <button
+                    type="button"
+                    id="tema-toggle"
+                    class="tema-toggle"
+                    aria-label="Alternar tema"
+                >
+                    ☾
+                </button>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <section id="cadastro" class="secao">
+
+            <div class="container">
+
+                <div class="titulo-secao">
+
+                    <span class="etiqueta">Faça parte</span>
+
+                    <h2>Faça parte da Educação para Todos</h2>
+
+                    <p>
+                        Escolha uma das opções abaixo para participar
+                        das nossas iniciativas.
+                    </p>
+
+                </div>
+
+
+                <form
+                    id="form-cadastro"
+                    class="formulario"
+                    action="#"
+                    method="post"
+                    novalidate
+                >
+
+                    <fieldset class="selecao-cadastro">
+
+                        <legend>Como você deseja se cadastrar?</legend>
+
+                        <p>
+                            Selecione uma das opções abaixo:
+                        </p>
+
+                        <div class="opcoes-cadastro">
+
+                            <label class="opcao-cadastro">
+
+                                <input
+                                    type="radio"
+                                    name="tipo-cadastro"
+                                    value="voluntario"
+                                    required
+                                >
+
+                                <span>
+                                    Quero ser voluntário
+                                </span>
+
+                            </label>
+
+
+                            <label class="opcao-cadastro">
+
+                                <input
+                                    type="radio"
+                                    name="tipo-cadastro"
+                                    value="assistido"
+                                >
+
+                                <span>
+                                    Quero cadastrar uma criança ou jovem
+                                </span>
+
+                            </label>
+
+                        </div>
+
+                    </fieldset>
+
+
+                    <div id="cadastro-voluntario" hidden>
+
+                        <fieldset>
+
+                            <legend>Dados pessoais</legend>
+
+                            <div class="grid-formulario">
+
+                                <div class="campo campo-largo">
+
+                                    <label for="nome">
+                                        Nome completo:
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="nome"
+                                        name="nome"
+                                        minlength="3"
+                                        maxlength="100"
+                                    >
+
+                                </div>
+
+
+                                <div class="campo">
+
+                                    <label for="cpf">
+                                        CPF:
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="cpf"
+                                        name="cpf"
+                                        placeholder="000.000.000-00"
+				        pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}"
+                                        maxlength="14"
+                                        inputmode="numeric"
+                                    >
+
+                                    <span
+                                        id="erro-cpf"
+                                        class="mensagem-erro"
+                                    ></span>
+
+                                </div>
+
+
+                                <div class="campo">
+
+                                    <label for="data-nascimento">
+                                        Data de nascimento:
+                                    </label>
+
+                                    <input
+                                        type="date"
+                                        id="data-nascimento"
+                                        name="data-nascimento"
+                                    >
+
+                                </div>
+
+                            </div>
+
+                        </fieldset>
+
+
+                        <fieldset>
+
+                            <legend>Contato</legend>
+
+                            <div class="grid-formulario">
+
+                                <div class="campo">
+
+                                    <label for="email">
+                                        E-mail:
+                                    </label>
+
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        placeholder="seuemail@email.com"
+                                    >
+
+                                </div>
+
+
+                                <div class="campo">
+
+                                    <label for="telefone">
+                                        Telefone:
+                                    </label>
+
+                                    <input
+                                        type="tel"
+                                        id="telefone"
+                                        name="telefone"
+                                        placeholder="(00) 00000-0000"
+                                        maxlength="15"
+				        pattern="\([0-9]{2}\) [0-9]{5}-[0-9]{4}"
+                                        inputmode="numeric"
+                                    >
+
+                                    <span
+                                        id="erro-telefone"
+                                        class="mensagem-erro"
+                                    ></span>
+
+                                </div>
+
+                            </div>
+
+                        </fieldset>
+
+
+                        <fieldset>
+
+                            <legend>Endereço</legend>
+
+                            <div class="grid-formulario">
+
+                                <div class="campo">
+
+                                    <label for="cep">
+                                        CEP:
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="cep"
+                                        name="cep"
+                                        placeholder="00000-000"
+                                        maxlength="9"
+				        pattern="[0-9]{5}-[0-9]{3}"
+                                        inputmode="numeric"
+                                    >
+
+                                    <span
+                                        id="erro-cep"
+                                        class="mensagem-erro"
+                                    ></span>
+
+                                </div>
+
+
+                                <div class="campo campo-largo">
+
+                                    <label for="rua">
+                                        Rua:
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="rua"
+                                        name="rua"
+                                    >
+
+                                </div>
+
+
+                                <div class="campo">
+
+                                    <label for="numero">
+                                        Número:
+                                    </label>
+
+                                    <input
+                                        type="number"
+                                        id="numero"
+                                        name="numero"
+                                        min="1"
+                                    >
+
+                                </div>
+
+
+                                <div class="campo">
+
+                                    <label for="cidade">
+                                        Cidade:
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="cidade"
+                                        name="cidade"
+                                    >
+
+                                </div>
+
+
+                                <div class="campo">
+
+                                    <label for="estado">
+                                        Estado:
+                                    </label>
+
+                                    <select
+                                        id="estado"
+                                        name="estado"
+                                    >
+
+                                        <option value="">
+                                            Selecione
+                                        </option>
+
+                                        <option value="AC">Acre</option>
+                                        <option value="AL">Alagoas</option>
+                                        <option value="AP">Amapá</option>
+                                        <option value="AM">Amazonas</option>
+                                        <option value="BA">Bahia</option>
+                                        <option value="CE">Ceará</option>
+                                        <option value="DF">Distrito Federal</option>
+                                        <option value="ES">Espírito Santo</option>
+                                        <option value="GO">Goiás</option>
+                                        <option value="MA">Maranhão</option>
+                                        <option value="MT">Mato Grosso</option>
+                                        <option value="MS">Mato Grosso do Sul</option>
+                                        <option value="MG">Minas Gerais</option>
+                                        <option value="PA">Pará</option>
+                                        <option value="PB">Paraíba</option>
+                                        <option value="PR">Paraná</option>
+                                        <option value="PE">Pernambuco</option>
+                                        <option value="PI">Piauí</option>
+                                        <option value="RJ">Rio de Janeiro</option>
+                                        <option value="RN">Rio Grande do Norte</option>
+                                        <option value="RS">Rio Grande do Sul</option>
+                                        <option value="RO">Rondônia</option>
+                                        <option value="RR">Roraima</option>
+                                        <option value="SC">Santa Catarina</option>
+                                        <option value="SP">São Paulo</option>
+                                        <option value="SE">Sergipe</option>
+                                        <option value="TO">Tocantins</option>
+
+                                    </select>
+
+                                </div>
+
+                            </div>
+
+                        </fieldset>
+
+
+                        <fieldset>
+
+                            <legend>Interesse em participar</legend>
+
+                            <div class="campo">
+
+                                <label for="projeto">
+                                    Qual projeto você gostaria de apoiar?
+                                </label>
+
+                                <select
+                                    id="projeto"
+                                    name="projeto"
+                                >
+
+                                    <option value="">
+                                        Selecione um projeto
+                                    </option>
+
+                                    <option value="biblioteca">
+                                        Biblioteca para Todos
+                                    </option>
+
+                                    <option value="aprender-juntos">
+                                        Aprender Juntos
+                                    </option>
+
+                                    <option value="rumo-enem">
+                                        Rumo ao ENEM
+                                    </option>
+
+                                    <option value="conecta-educacao">
+                                        Conecta Educação
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <p>Como você deseja participar?</p>
+
+                            <div class="opcoes-radio">
+
+                                <label>
+
+                                    <input
+                                        type="radio"
+                                        name="participacao"
+                                        value="voluntario"
+                                    >
+
+                                    Voluntário
+
+                                </label>
+
+
+                                <label>
+
+                                    <input
+                                        type="radio"
+                                        name="participacao"
+                                        value="doador"
+                                    >
+
+                                    Doador
+
+                                </label>
+
+
+                                <label>
+
+                                    <input
+                                        type="radio"
+                                        name="participacao"
+                                        value="parceiro"
+                                    >
+
+                                    Parceiro
+
+                                </label>
+
+                            </div>
+
+                        </fieldset>
+
+
+                        <fieldset>
+
+                            <legend>Sobre você</legend>
+
+                            <div class="campo">
+
+                                <label for="mensagem">
+                                    Conte-nos um pouco sobre seu interesse em participar:
+                                </label>
+
+                                <textarea
+                                    id="mensagem"
+                                    name="mensagem"
+                                    rows="6"
+                                    minlength="10"
+                                    maxlength="500"
+                                ></textarea>
+
+                            </div>
+
+                        </fieldset>
+
+
+                        <button
+                            type="submit"
+                            class="botao botao-destaque"
+                        >
+                            Enviar cadastro
+                        </button>
+
+                    </div>
+
+
+                    <div id="cadastro-assistido" hidden>
+
+                        <fieldset>
+
+                            <legend>Dados do responsável</legend>
+
+                            <div class="grid-formulario">
+
+                                <div class="campo campo-largo">
+
+                                    <label for="nome-responsavel">
+                                        Nome completo do responsável:
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="nome-responsavel"
+                                        name="nome-responsavel"
+                                        minlength="3"
+                                        maxlength="100"
+                                    >
+
+                                </div>
+
+
+                                <div class="campo">
+
+                                    <label for="cpf-responsavel">
+                                        CPF do responsável:
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="cpf-responsavel"
+                                        name="cpf-responsavel"
+                                        placeholder="000.000.000-00"
+                                        pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}"
+                                        maxlength="14"
+                                        inputmode="numeric"
+                                    >
+
+                                </div>
+
+
+                                <div class="campo">
+
+                                    <label for="email-responsavel">
+                                        E-mail:
+                                    </label>
+
+                                    <input
+                                        type="email"
+                                        id="email-responsavel"
+                                        name="email-responsavel"
+                                        placeholder="responsavel@email.com"
+                                    >
+
+                                </div>
+
+
+                                <div class="campo">
+
+                                    <label for="telefone-responsavel">
+                                        Telefone:
+                                    </label>
+
+                                    <input
+                                        type="tel"
+                                        id="telefone-responsavel"
+                                        name="telefone-responsavel"
+                                        placeholder="(00) 00000-0000"
+                                        maxlength="15"
+                                        inputmode="numeric"
+                                    >
+
+                                </div>
+
+                            </div>
+
+                        </fieldset>
+
+
+                        <fieldset>
+
+                            <legend>Dados do assistido</legend>
+
+                            <div class="grid-formulario">
+
+                                <div class="campo campo-largo">
+
+                                    <label for="nome-assistido">
+                                        Nome completo:
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="nome-assistido"
+                                        name="nome-assistido"
+                                        minlength="3"
+                                        maxlength="100"
+                                    >
+
+                                </div>
+
+
+                                <div class="campo">
+
+                                    <label for="data-nascimento-assistido">
+                                        Data de nascimento:
+                                    </label>
+
+                                    <input
+                                        type="date"
+                                        id="data-nascimento-assistido"
+                                        name="data-nascimento-assistido"
+                                    >
+
+                                    <span
+                                        id="erro-idade-assistido"
+                                        class="mensagem-erro"
+                                    ></span>
+
+                                </div>
+
+
+                                <div class="campo">
+
+                                    <label for="parentesco">
+                                        Parentesco ou relação:
+                                    </label>
+
+                                    <select
+                                        id="parentesco"
+                                        name="parentesco"
+                                    >
+
+                                        <option value="">
+                                            Selecione
+                                        </option>
+
+                                        <option value="mae">
+                                            Mãe
+                                        </option>
+
+                                        <option value="pai">
+                                            Pai
+                                        </option>
+
+                                        <option value="avo">
+                                            Avó/Avô
+                                        </option>
+
+                                        <option value="responsavel">
+                                            Responsável legal
+                                        </option>
+
+                                        <option value="outro">
+                                            Outro
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+                            </div>
+
+                        </fieldset>
+
+
+                        <fieldset>
+
+                            <legend>Necessidades de apoio</legend>
+
+                            <p>
+                                Selecione uma ou mais opções:
+                            </p>
+
+                            <div class="opcoes-checkbox">
+
+                                <label>
+
+                                    <input
+                                        type="checkbox"
+                                        name="apoio"
+                                        value="reforco"
+                                    >
+
+                                    Reforço escolar
+
+                                </label>
+
+
+                                <label>
+
+                                    <input
+                                        type="checkbox"
+                                        name="apoio"
+                                        value="livros"
+                                    >
+
+                                    Livros e materiais escolares
+
+                                </label>
+
+
+                                <label>
+
+                                    <input
+                                        type="checkbox"
+                                        name="apoio"
+                                        value="enem"
+                                    >
+
+                                    Preparação para o ENEM
+
+                                </label>
+
+
+                                <label>
+
+                                    <input
+                                        type="checkbox"
+                                        name="apoio"
+                                        value="inclusao-digital"
+                                    >
+
+                                    Inclusão digital
+
+                                </label>
+
+                            </div>
+
+                        </fieldset>
+
+
+                        <fieldset>
+
+                            <legend>Informações adicionais</legend>
+
+                            <div class="campo">
+
+                                <label for="informacoes-assistido">
+                                    Conte-nos algo que possa ajudar a compreender
+                                    as necessidades do assistido:
+                                </label>
+
+                                <textarea
+                                    id="informacoes-assistido"
+                                    name="informacoes-assistido"
+                                    rows="6"
+                                    maxlength="500"
+                                ></textarea>
+
+                            </div>
+
+                        </fieldset>
+
+
+                        <div class="alerta">
+
+                            <strong>Importante:</strong>
+
+                            os dados informados neste cadastro são utilizados
+                            apenas para fins acadêmicos e demonstrativos neste projeto.
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="botao botao-destaque"
+                        >
+                            Enviar cadastro
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        id="feedback-formulario"
+                        class="alerta"
+                        hidden
+                        role="alert"
+                    ></div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer class="rodape">
+
+        <div class="container rodape-conteudo">
+
+            <div>
+
+                <h2>Educação para Todos</h2>
+
+                <p>
+                    Compartilhando conhecimento, construindo futuros.
+                </p>
+
+            </div>
+
+            <div>
+
+                <p>
+                    E-mail: contato@educacaoparatodos.org
+                </p>
+
+                <p>
+                    Telefone: (11) 99999-9999
+                </p>
+                <p>
+                    Este é um site fictício desenvolvido para fins acadêmicos.
+                </p>
+
+            </div>
+
+            <p class="copyright">
+                © 2026 Educação para Todos. Todos os direitos reservados.
+            </p>
+
+        </div>
+
+    </footer>
+<script src="../js/script.js"></script>
+</body>
+
+</html>
